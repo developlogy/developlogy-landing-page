@@ -10,6 +10,7 @@ export const MINI_DRAWER_WIDTH = 90;
 export const HEADER_HEIGHT = 74;
 export const GRID_COMMON_SPACING = { xs: 2, md: 2.5 };
 
+
 export let SimpleLayoutType;
 
 (function (SimpleLayoutType) {
