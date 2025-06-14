@@ -21,7 +21,6 @@ import IconButton from 'components/@extended/IconButton';
 import AnimateButton from 'components/@extended/AnimateButton';
 import Logo from 'components/logo';
 import { ThemeDirection, APP_DEFAULT_PATH } from 'config';
-import useAuth from 'hooks/useAuth';
 import { useIspValue } from 'hooks/useIspValue';
 
 // assets
@@ -48,7 +47,8 @@ function ElevationScroll({ children, window }) {
 // ==============================|| COMPONENTS - APP BAR ||============================== //
 
 export default function Header() {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
+  const isLoggedIn = true;
   const downMD = useMediaQuery((theme) => theme.breakpoints.down('md'));
 
   const { menuMaster } = useGetMenuMaster();
