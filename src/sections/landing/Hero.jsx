@@ -19,6 +19,7 @@ import { useTheme } from '@mui/material/styles';
 // project-imports
 import { techData } from 'data/tech-data';
 import { useIspValue } from 'hooks/useIspValue';
+import TechnologiesPage from './Technologies';
 
 // third-party
 import { motion, AnimatePresence } from 'framer-motion';
@@ -108,7 +109,7 @@ export default function HeroPage() {
   });
 
   return (
-    <Box sx={{ minHeight: '100vh', position: 'relative', pb: 12.5, pt: 10, display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ minHeight: '100vh', position: 'relative', pb: 12.5, pt: 30, display: 'flex', alignItems: 'center' }}>
       <Container>
         <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', pt: { md: 0, xs: 10 }, pb: { md: 0, xs: 22 } }}>
           <Grid size={{ xs: 12, md: 9 }}>
@@ -200,60 +201,8 @@ export default function HeroPage() {
           </Grid>
         </Grid>
 
-        {/* Bottom tech demo bar */}
-        {services.map((service, index) => (
-          <Box
-            sx={{
-              display: 'flex',
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              alignItems: 'center',
-              justifyContent: 'center',
-              bgcolor: 'background.paper',
-              borderTop: '1px solid',
-              borderBottom: '1px solid',
-              borderColor: 'divider'
-            }}
-          >
-            <Grid
-              container
-              spacing={0}
-              wrap="nowrap"
-              sx={(theme) => ({
-                justifyContent: { xs: 'start', lg: 'center' },
-                overflowX: 'auto',
-                '& > .MuiGrid2-root': {
-                  borderRight: `1px solid ${theme.palette.divider}`,
-                  '&:first-of-type': { borderLeft: `1px solid ${theme.palette.divider}` },
-                  '& img': { padding: 1.3 }
-                }
-              })}
-            >
-              <Box
-                sx={{
-                  p: 3,
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  borderRadius: 3,
-                  height: '100%',
-                  bgcolor: 'background.paper',
-                  boxShadow: 1,
-                  textAlign: 'center'
-                }}
-              >
-                <Typography variant="h5" fontWeight={600} gutterBottom>
-                  {service.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                  {service.description}
-                </Typography>
-                <CardMedia component="img" image={service.image} sx={{ borderRadius: 2, height: 160, objectFit: 'contain' }} />
-              </Box>
-            </Grid>
-          </Box>
-        ))}
+        {/* Technologies & Services Page */}
+        <TechnologiesPage />
       </Container>
     </Box>
   );
