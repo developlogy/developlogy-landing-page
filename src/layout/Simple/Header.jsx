@@ -56,7 +56,7 @@ const menuLinks = [
   { label: 'Portfolio', to: '/portfolio' },
   { label: 'Blog', to: '/blog' },
   { label: 'Careers', to: '/careers' },
-  { label: 'Contact', to: '/contact' }
+  { label: 'Contact', to: '/contact-us' }
 ];
 
 const services = [
@@ -78,7 +78,7 @@ const services = [
   },
   {
     title: 'Cloud Solutions',
-    items: ['Server', 'Domain']
+    items: ['Server', 'Domain', 'Elementor License', 'Visual Composer License']
   }
 ];
 
@@ -190,7 +190,7 @@ export default function Header({ layout = 'landing', ...others }) {
               </Menu>
 
               <AnimateButton>
-                <Button component={RouterLink} to="/contact" variant="contained" color="success" size="large">
+                <Button component={RouterLink} to="/contact-us" variant="contained" color="success" size="large">
                   Request a Quote
                 </Button>
               </AnimateButton>

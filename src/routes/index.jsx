@@ -7,6 +7,7 @@ import ComponentsRoutes from './ComponentsRoutes';
 import Loadable from 'components/Loadable';
 import { SimpleLayoutType } from '../config';
 import SimpleLayout from 'layout/Simple';
+import ContactUs from '../pages/contact-us';
 
 // render - landing page
 const PagesLanding = Loadable(lazy(() => import('pages/landing')));
@@ -24,6 +25,10 @@ const router = createBrowserRouter(
           element: <PagesLanding />
         }
       ]
+    },
+    {
+      path: '/contact-us',
+      element: <ContactUs />
     },
     ComponentsRoutes
   ],
