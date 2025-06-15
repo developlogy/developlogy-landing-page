@@ -1,4 +1,7 @@
+// ✅ HERO PAGE WITH SLOGANS ROTATING INSIDE HEADLINE (FIXED)
+
 import { Link as RouterLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // material-ui
 import Grid from '@mui/material/Grid2';
@@ -10,21 +13,43 @@ import Rating from '@mui/material/Rating';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import { useTheme } from '@mui/material/styles';
 
 // project-imports
 import { techData } from 'data/tech-data';
 import { useIspValue } from 'hooks/useIspValue';
 
 // third-party
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // assets
 import AnimateButton from 'components/@extended/AnimateButton';
 
-// ==============================|| LANDING - HERO PAGE ||============================== //
-
 export default function HeroPage() {
   const ispValueAvailable = useIspValue();
+  const theme = useTheme();
+
+  const slogans = [
+    'Code smarter, dream bigger, achieve faster.',
+    'Elevate your brand - one search at a time.',
+    'Building credibility, one verified fact at a time.',
+    'Seamless IT solutions that keep your growth always online.'
+  ];
+
+  const [currentSlogan, setCurrentSlogan] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlogan((prev) => (prev + 1) % slogans.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [slogans.length]);
+
+  const splitSlogan = (slogan) => {
+    const midpoint = Math.floor(slogan.length * 0.4);
+    return [slogan.slice(0, midpoint), slogan.slice(midpoint)];
+  };
 
   const techBottom = techData.map((item, index) => {
     const finalUrl = item.url !== '#!' && ispValueAvailable ? `${item.url}?isp=1` : item.url;
@@ -59,11 +84,7 @@ export default function HeroPage() {
                 <motion.div
                   initial={{ opacity: 0, translateY: 550 }}
                   animate={{ opacity: 1, translateY: 0 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 150,
-                    damping: 30
-                  }}
+                  transition={{ type: 'spring', stiffness: 150, damping: 30 }}
                 >
                   <Typography
                     variant="h1"
@@ -73,62 +94,50 @@ export default function HeroPage() {
                       lineHeight: 1.2
                     }}
                   >
-                    Explore One of the{' '}
-                    <Typography
-                      variant="h1"
-                      component="span"
-                      sx={{
-                        fontSize: 'inherit',
-                        background: 'linear-gradient(90deg, rgb(37, 161, 244), rgb(249, 31, 169), rgb(37, 161, 244)) 0 0 / 400% 100%',
-                        color: 'transparent',
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
-                        animation: 'move-bg 24s infinite linear',
-                        '@keyframes move-bg': { '100%': { backgroundPosition: '400% 0' } }
-                      }}
-                    >
-                      Featured Dashboard
-                    </Typography>{' '}
-                    Template in Themeforest
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={slogans[currentSlogan]}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -15 }}
+                        transition={{ duration: 0.6 }}
+                        style={{ display: 'inline-block' }}
+                      >
+                        {(() => {
+                          const [first, second] = splitSlogan(slogans[currentSlogan]);
+                          return (
+                            <>
+                              <Box
+                                component="span"
+                                sx={{
+                                  fontWeight: 700,
+                                  background: 'linear-gradient(90deg, rgb(37, 161, 244), rgb(249, 31, 169), rgb(37, 161, 244))',
+                                  color: 'transparent',
+                                  WebkitBackgroundClip: 'text',
+                                  backgroundClip: 'text',
+                                  animation: 'move-bg 24s infinite linear',
+                                  '@keyframes move-bg': { '100%': { backgroundPosition: '400% 0' } }
+                                }}
+                              >
+                                {first}
+                              </Box>
+                              <Box component="span" sx={{ color: theme.palette.text.primary }}>
+                                {second}
+                              </Box>
+                            </>
+                          );
+                        })()}
+                      </motion.span>
+                    </AnimatePresence>
                   </Typography>
                 </motion.div>
               </Grid>
-              <Grid container size={12} sx={{ justifyContent: 'center' }}>
-                <Grid size={8}>
-                  <motion.div
-                    initial={{ opacity: 0, translateY: 550 }}
-                    animate={{ opacity: 1, translateY: 0 }}
-                    transition={{
-                      type: 'spring',
-                      stiffness: 150,
-                      damping: 30,
-                      delay: 0.2
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontSize: { xs: '0.875rem', md: '1rem' },
-                        fontWeight: 400,
-                        lineHeight: { xs: 1.4, md: 1.4 }
-                      }}
-                    >
-                      Able Pro is the one of the Featured admin dashboard template in Envato Marketplace and used by over 5.5K+ Customers
-                      worldwide.
-                    </Typography>
-                  </motion.div>
-                </Grid>
-              </Grid>
+
               <Grid size={12}>
                 <motion.div
                   initial={{ opacity: 0, translateY: 550 }}
                   animate={{ opacity: 1, translateY: 0 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 150,
-                    damping: 30,
-                    delay: 0.4
-                  }}
+                  transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.4 }}
                 >
                   <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
                     <Grid>
@@ -154,87 +163,11 @@ export default function HeroPage() {
                   </Grid>
                 </motion.div>
               </Grid>
-              <Grid size={12}>
-                <motion.div
-                  initial={{ opacity: 0, translateY: 550 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 150,
-                    damping: 30,
-                    delay: 0.6
-                  }}
-                >
-                  <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
-                    <Grid
-                      sx={{
-                        position: 'relative',
-                        '&:after': {
-                          content: '""',
-                          position: 'absolute',
-                          height: 30,
-                          bottom: 10,
-                          left: 'auto',
-                          right: '-12px',
-                          width: '1px',
-                          bgcolor: 'divider'
-                        }
-                      }}
-                    >
-                      <Rating name="read-only" value={4.5} size="small" readOnly />
-                      <Typography variant="h4">
-                        4.7/5
-                        <Box component="span" sx={{ fontSize: '75%', fontWeight: 400, margin: 0.625, color: 'text.secondary' }}>
-                          Ratings
-                        </Box>
-                      </Typography>
-                    </Grid>
-                    <Grid>
-                      <Typography variant="h5">
-                        <Box
-                          component="span"
-                          sx={{
-                            fontSize: '75%',
-                            fontWeight: 400,
-                            color: 'text.secondary'
-                          }}
-                        >
-                          Sales
-                        </Box>
-                      </Typography>
-                      <Typography variant="h4">5.5K+</Typography>
-                    </Grid>
-                  </Grid>
-                </motion.div>
-              </Grid>
-              <Grid container size={12} sx={{ justifyContent: 'center' }}>
-                <Grid size={8}>
-                  <motion.div
-                    initial={{ opacity: 0, translateY: 550 }}
-                    animate={{ opacity: 1, translateY: 0 }}
-                    transition={{
-                      type: 'spring',
-                      stiffness: 150,
-                      damping: 30,
-                      delay: 0.2
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontSize: { xs: '0.875rem', md: '1rem' },
-                        fontWeight: 400,
-                        lineHeight: { xs: 1.4, md: 1.4 }
-                      }}
-                    >
-                      - Click Below Icon to Preview Each Tech Demos -
-                    </Typography>
-                  </motion.div>
-                </Grid>
-              </Grid>
             </Grid>
           </Grid>
         </Grid>
+
+        {/* Bottom tech demo bar */}
         <Box
           sx={{
             display: 'flex',
