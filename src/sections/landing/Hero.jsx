@@ -123,9 +123,16 @@ export default function HeroPage() {
                   <Typography
                     variant="h1"
                     sx={{
-                      fontSize: { xs: '1.825rem', sm: '2rem', md: '3.4375rem' },
+                      fontSize: { xs: '1.825rem', sm: '2rem', md: '3.125rem', lg: '3.75rem' },
                       fontWeight: 700,
-                      lineHeight: 1.2
+                      lineHeight: 1.3,
+                      minHeight: { xs: '4.5rem', sm: '5rem', md: '6rem', lg: '7rem' },
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      flexWrap: 'wrap',
+                      textAlign: 'center',
+                      px: { xs: 2, sm: 6 }
                     }}
                   >
                     <AnimatePresence mode="wait">

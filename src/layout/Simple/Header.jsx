@@ -62,38 +62,23 @@ const menuLinks = [
 const services = [
   {
     title: 'SEO & Content',
-    items: ['Search Engine Optimization', 'SEO Consultation', 'Google My Business', 'ORM Strategy', 'Content Creation']
+    items: ['Search Engine Optimization', 'SEO Consultation', 'Google My Business', 'Content Creation']
   },
   {
     title: 'Creative & Advertising',
-    items: [
-      'Social Media Management',
-      'Video & Post Production',
-      'Design & Branding',
-      'Performance Marketing',
-      'PR & Outreach',
-      'Photography & Videography'
-    ]
+    items: ['Social Media Management', 'Video & Post Production', 'Design & Branding', 'Performance Marketing']
   },
   {
     title: 'IT Solutions',
-    items: ['Software Solutions', 'Web Development', 'Mobile App Development', 'VAPT & Security Services', 'Data Entry']
+    items: ['Software Solutions', 'Web Development', 'Mobile App Development']
   },
   {
     title: 'Wikipedia',
-    items: [
-      'Page Creation',
-      'Page Editing',
-      'Monitoring & Maintenance',
-      'Recover Deleted Page',
-      'Consultancy',
-      'Content Writing',
-      'Draft Creation'
-    ]
+    items: ['Page Creation', 'Page Editing', 'Monitoring & Maintenance', 'Content Writing']
   },
   {
     title: 'Cloud Solutions',
-    items: ['Server', 'Domain', 'Elementor License', 'Visual Composer License']
+    items: ['Server', 'Domain']
   }
 ];
 

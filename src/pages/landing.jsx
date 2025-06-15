@@ -13,6 +13,7 @@ import Subscribe from 'sections/landing/Subscribe';
 import ApproachSection from '../sections/landing/Approach';
 import WhyChooseUs from '../sections/landing/WhyChooseUs';
 import FaqSection from '../sections/landing/Faq';
+import WebDesignTrends from '../sections/landing/WebDesignTrends';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -21,6 +22,7 @@ export default function Landing() {
     <>
       <Hero />
       <ApproachSection />
+      <WebDesignTrends />
       <WhyChooseUs />
       <FaqSection />
       <Testimonial />
