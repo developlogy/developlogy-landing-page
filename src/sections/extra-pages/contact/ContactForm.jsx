@@ -48,6 +48,9 @@ export default function ContactForm() {
           phone: '',
           size: ''
         });
+
+        // Redirect to homepage
+        window.location.href = '/';
       },
       (error) => {
         console.error('Email sending error:', error.text);
