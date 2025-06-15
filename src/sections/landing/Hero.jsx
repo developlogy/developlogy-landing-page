@@ -176,21 +176,8 @@ export default function HeroPage() {
                   <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
                     <Grid>
                       <AnimateButton>
-                        <Button
-                          component={RouterLink}
-                          to={ispValueAvailable ? '/components-overview/buttons?isp=1' : '/components-overview/buttons'}
-                          size="large"
-                          color="secondary"
-                          variant="outlined"
-                        >
-                          Explore Components
-                        </Button>
-                      </AnimateButton>
-                    </Grid>
-                    <Grid>
-                      <AnimateButton>
                         <Button component={RouterLink} to="/login" target="_blank" size="large" color="primary" variant="contained">
-                          Live Preview
+                          Request a quote
                         </Button>
                       </AnimateButton>
                     </Grid>

@@ -10,6 +10,9 @@ import Free from 'sections/landing/Free';
 import Testimonial from 'sections/landing/Testimonial';
 import Partner from 'sections/landing/Partner';
 import Subscribe from 'sections/landing/Subscribe';
+import ApproachSection from '../sections/landing/Approach';
+import WhyChooseUs from '../sections/landing/WhyChooseUs';
+import FaqSection from '../sections/landing/Faq';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -17,13 +20,16 @@ export default function Landing() {
   return (
     <>
       <Hero />
-      <Combo />
+      <ApproachSection />
+      <WhyChooseUs />
+      <FaqSection />
+      <Testimonial />
+      {/* <Combo />
       <FigmaBlock />
       <Apps />
       <Free />
-      <Testimonial />
       <Partner />
-      <Subscribe />
+      <Subscribe /> */}
       <Divider sx={{ borderColor: 'secondary.light' }} />
     </>
   );
