@@ -52,7 +52,7 @@ function ElevationScroll({ children, window }) {
 
 const menuLinks = [
   { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about' },
+  { label: 'About Us', to: '/about-us' },
   { label: 'Portfolio', to: '/portfolio' },
   { label: 'Blog', to: '/blog' },
   { label: 'Careers', to: '/careers' },

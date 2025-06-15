@@ -8,6 +8,7 @@ import Loadable from 'components/Loadable';
 import { SimpleLayoutType } from '../config';
 import SimpleLayout from 'layout/Simple';
 import ContactUs from '../pages/contact-us';
+import AboutUs from '../pages/about-us';
 
 // render - landing page
 const PagesLanding = Loadable(lazy(() => import('pages/landing')));
@@ -23,13 +24,18 @@ const router = createBrowserRouter(
         {
           index: true,
           element: <PagesLanding />
+        },
+        {
+          path: '/contact-us',
+          element: <ContactUs />
+        },
+        {
+          path: '/about-us',
+          element: <AboutUs />
         }
       ]
     },
-    {
-      path: '/contact-us',
-      element: <ContactUs />
-    },
+
     ComponentsRoutes
   ],
   { basename: import.meta.env.VITE_APP_BASE_NAME }
