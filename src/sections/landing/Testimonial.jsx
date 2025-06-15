@@ -88,7 +88,7 @@ export default function TestimonialPage() {
     },
     {
       image: Avatar6,
-      text: '“I love the looks of Able Pro 7.0. I really like the colors you guys have chosen for this theme. It looks really nice.. 💎“',
+      text: '“I love the looks of Developlogy. I really like the colors you guys have chosen for this theme. It looks really nice.. 💎“',
       name: 'ritelogic',
       designation: 'Other'
     },
@@ -107,7 +107,7 @@ export default function TestimonialPage() {
   ];
   return (
     <>
-      <Box sx={{ mt: { md: 15, xs: 2.5 } }}>
+      <Box sx={{ mt: { md: 0, xs: 2.5 } }}>
         <Container>
           <Grid container spacing={2} sx={{ justifyContent: 'center', textAlign: 'center', marginBottom: 4, paddingTop: 3 }}>
             <Grid size={12}>
@@ -126,7 +126,7 @@ export default function TestimonialPage() {
                   <Typography variant="h2" component="span" sx={{ color: 'primary.main' }}>
                     love
                   </Typography>{' '}
-                  Able Pro, Now your turn 😍
+                  Developlogy, Now your turn 😍
                 </Typography>
               </motion.div>
             </Grid>
@@ -142,8 +142,8 @@ export default function TestimonialPage() {
                 }}
               >
                 <Typography>
-                  We take pride in our Dashboard development, which has been consistently rated 4.7/5 by our satisfied customers. It brings
-                  us joy to share the positive feedback we have received from our loyal clients.
+                  We take pride in our Dashboard & Website development, which has been consistently rated 4.7/5 by our satisfied customers.
+                  It brings us joy to share the positive feedback we have received from our loyal clients.
                 </Typography>
               </motion.div>
             </Grid>
