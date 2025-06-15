@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Stack, Typography, Button } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import ComputerIcon from '@mui/icons-material/Computer';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -82,7 +83,7 @@ export default function OurCapabilities() {
           <Typography variant="h4" fontWeight={600} sx={{ mb: 4 }}>
             Let&apos;s Connect
           </Typography>
-          <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />}>
+          <Button component={RouterLink} to="/contact-us" variant="contained" size="large" endIcon={<ArrowForwardIcon />}>
             Let&apos;s Talk
           </Button>
         </Box>
