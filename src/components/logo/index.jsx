@@ -8,12 +8,12 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Logo from './LogoMain';
 import LogoIcon from './LogoIcon';
 import { APP_DEFAULT_PATH } from 'config';
-import useAuth from 'hooks/useAuth';
 
 // ==============================|| MAIN LOGO ||============================== //
 
 export default function LogoSection({ isIcon, sx, to }) {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
+  const isLoggedIn = true;
 
   return (
     <ButtonBase disableRipple {...(isLoggedIn && { component: Link, to: !to ? APP_DEFAULT_PATH : to, sx })}>
