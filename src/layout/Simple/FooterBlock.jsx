@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 // material-ui
 import { styled } from '@mui/material/styles';
@@ -16,8 +17,9 @@ import { motion } from 'framer-motion';
 import Logo from 'components/logo';
 
 // assets
-import { Dribbble, Youtube } from 'iconsax-react';
+import { Dribbble, Instagram, Youtube } from 'iconsax-react';
 import GithubIcon from 'assets/third-party/github';
+import { LinkedIn } from '@mui/icons-material';
 
 // link - custom style
 const FooterLink = styled(Link)(({ theme }) => ({
@@ -31,6 +33,7 @@ const FooterLink = styled(Link)(({ theme }) => ({
 
 export default function FooterBlock({ isFull }) {
   const linkSX = { color: 'text.secondary', fontWeight: 400, opacity: '0.6', cursor: 'pointer', '&:hover': { opacity: '1' } };
+  const [isEnabled, setIsEnabled] = useState(false);
 
   return (
     <>
@@ -53,8 +56,9 @@ export default function FooterBlock({ isFull }) {
                   </Grid>
                   <Grid size={12}>
                     <Typography variant="subtitle1" sx={{ fontWeight: 400, maxWidth: 320 }}>
-                      Phoenixcoded has gained the trust of over 5.5K+ customers since 2015, thanks to our commitment to delivering
-                      high-quality products. Our experienced team players are responsible for managing Able Pro.
+                      Developlogy has earned the trust of global clients by delivering reliable, custom software solutions since our
+                      inception. Our expert team combines innovation with precision to build scalable, high-performance products that drive
+                      business growth. We’re the minds behind every line of code — shaping ideas into powerful digital experiences.
                     </Typography>
                   </Grid>
                 </Grid>
@@ -66,16 +70,16 @@ export default function FooterBlock({ isFull }) {
                   <Stack sx={{ gap: 3 }}>
                     <Typography variant="h5">Company</Typography>
                     <Stack sx={{ gap: { xs: 1.5, md: 2.5 } }}>
-                      <FooterLink href="https://1.envato.market/xk3bQd" target="_blank" underline="none">
+                      <FooterLink href="https://instagram.com" target="_blank" underline="none">
                         Profile
                       </FooterLink>
-                      <FooterLink href="https://1.envato.market/Qyre4x" target="_blank" underline="none">
+                      <FooterLink href="https://instagram.com" target="_blank" underline="none">
                         Portfolio
                       </FooterLink>
-                      <FooterLink href="https://1.envato.market/Py9k4X" target="_blank" underline="none">
+                      <FooterLink href="https://linkedin.com" target="_blank" underline="none">
                         Follow Us
                       </FooterLink>
-                      <FooterLink href="https://phoenixcoded.net" target="_blank" underline="none">
+                      <FooterLink href="/" target="_blank" underline="none">
                         Website
                       </FooterLink>
                     </Stack>
@@ -88,23 +92,23 @@ export default function FooterBlock({ isFull }) {
                       <FooterLink href="https://phoenixcoded.gitbook.io/able-pro" target="_blank" underline="none">
                         Documentation
                       </FooterLink>
-                      <FooterLink href="https://phoenixcoded.authordesk.app/" target="_blank" underline="none">
+                      <FooterLink href="/contact-us" target="_blank" underline="none">
                         Feature Request
                       </FooterLink>
-                      <FooterLink href="https://phoenixcoded.gitbook.io/able-pro/v/react/roadmap/" target="_blank" underline="none">
+                      {/* <FooterLink href="https://phoenixcoded.gitbook.io/able-pro/v/react/roadmap/" target="_blank" underline="none">
                         RoadMap
-                      </FooterLink>
-                      <FooterLink href="https://phoenixcoded.authordesk.app/" target="_blank" underline="none">
+                      </FooterLink> */}
+                      <FooterLink href="/contact-us" target="_blank" underline="none">
                         Support
                       </FooterLink>
-                      <FooterLink href="https://themeforest.net/user/phoenixcoded#contact" target="_blank" underline="none">
+                      <FooterLink href="/contact-us" target="_blank" underline="none">
                         Email Us
                       </FooterLink>
                     </Stack>
                   </Stack>
                 </Grid>
                 <Grid size={{ xs: 6, sm: 4 }}>
-                  <Stack sx={{ gap: 3 }}>
+                  {/* <Stack sx={{ gap: 3 }}>
                     <Typography variant="h5">Useful Resources</Typography>
                     <Stack sx={{ gap: { xs: 1.5, md: 2.5 } }}>
                       <FooterLink href="https://themeforest.net/page/item_support_policy" target="_blank" underline="none">
@@ -114,7 +118,7 @@ export default function FooterBlock({ isFull }) {
                         Licenses Term
                       </FooterLink>
                     </Stack>
-                  </Stack>
+                  </Stack> */}
                 </Grid>
               </Grid>
             </Grid>
@@ -127,32 +131,40 @@ export default function FooterBlock({ isFull }) {
             <Grid size={{ xs: 12, sm: 8 }}>
               <Typography>
                 © Handcrafted by Team{' '}
-                <Link href="https://themeforest.net/user/phoenixcoded" target="_blank" underline="none">
+                <Link href="/" target="_blank" underline="none">
                   {' '}
-                  Phoenixcoded
+                  Developlogy
                 </Link>
               </Typography>
             </Grid>
             <Grid size={{ xs: 12, sm: 4 }}>
               <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'flex-end' }}>
                 <Grid>
-                  <Tooltip title="Github">
-                    <Link href="https://github.com/phoenixcoded" underline="none" target="_blank" sx={linkSX}>
-                      <GithubIcon size={20} />
+                  {isEnabled ? (
+                    <Tooltip title="Github">
+                      <Link href="/" underline="none" target="_blank" sx={linkSX}>
+                        <GithubIcon size={20} />
+                      </Link>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title="Github">
+                      <span style={{ color: 'gray', cursor: 'not-allowed', opacity: 0.6 }}>
+                        <GithubIcon size={20} />
+                      </span>
+                    </Tooltip>
+                  )}
+                </Grid>
+                <Grid>
+                  <Tooltip title="LinkedIn">
+                    <Link href="/" underline="none" target="_self" sx={linkSX}>
+                      <LinkedIn variant="Bold" size={20} />
                     </Link>
                   </Tooltip>
                 </Grid>
                 <Grid>
-                  <Tooltip title="Dribbble">
-                    <Link href="https://dribbble.com/Phoenixcoded" underline="none" target="_blank" sx={linkSX}>
-                      <Dribbble variant="Bold" size={20} />
-                    </Link>
-                  </Tooltip>
-                </Grid>
-                <Grid>
-                  <Tooltip title="Youtube">
-                    <Link href="https://www.youtube.com/@phoenixcoded" underline="none" target="_blank" sx={linkSX}>
-                      <Youtube variant="Bold" size={20} />
+                  <Tooltip title="Instagram">
+                    <Link href="/" underline="none" target="_self" sx={linkSX}>
+                      <Instagram variant="Bold" size={20} />
                     </Link>
                   </Tooltip>
                 </Grid>

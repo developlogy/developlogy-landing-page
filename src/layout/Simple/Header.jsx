@@ -33,6 +33,7 @@ import IconButton from 'components/@extended/IconButton';
 import Logo from 'components/logo';
 import { HambergerMenu, Minus } from 'iconsax-react';
 import { useIspValue } from 'hooks/useIspValue';
+import { Close } from '@mui/icons-material';
 
 function ElevationScroll({ children, window }) {
   const theme = useTheme();
@@ -51,12 +52,12 @@ function ElevationScroll({ children, window }) {
 }
 
 const menuLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about-us' },
-  { label: 'Portfolio', to: '/portfolio' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'Careers', to: '/careers' },
-  { label: 'Contact', to: '/contact-us' }
+  { label: 'Home', to: '/', disabled: false },
+  { label: 'About Us', to: '/about-us', disabled: false },
+  { label: 'Portfolio', to: '/portfolio', disabled: true },
+  { label: 'Blog', to: '/blog', disabled: true },
+  { label: 'Careers', to: '/careers', disabled: true },
+  { label: 'Contact', to: '/contact-us', disabled: false }
 ];
 
 const services = [
@@ -90,6 +91,8 @@ export default function Header({ layout = 'landing', ...others }) {
   const open = Boolean(anchorEl);
   const ispValueAvailable = useIspValue();
 
+  const [servicesOpen, setServicesOpen] = useState(false);
+
   const drawerToggler = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) return;
     setDrawerToggle(open);
@@ -115,18 +118,33 @@ export default function Header({ layout = 'landing', ...others }) {
             </Stack>
 
             <Stack direction="row" spacing={3} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-              {menuLinks.map((link, i) => (
-                <Link
-                  key={i}
-                  component={RouterLink}
-                  to={link.to}
-                  underline="none"
-                  color="secondary.main"
-                  sx={{ fontWeight: 500, '&:hover': { color: 'primary.main' } }}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {menuLinks.map((link, i) =>
+                link.disabled ? (
+                  <Typography
+                    key={i}
+                    variant="body1"
+                    sx={{
+                      color: 'text.disabled',
+                      fontWeight: 500,
+                      cursor: 'not-allowed',
+                      userSelect: 'none'
+                    }}
+                  >
+                    {link.label}
+                  </Typography>
+                ) : (
+                  <Link
+                    key={i}
+                    component={RouterLink}
+                    to={link.to}
+                    underline="none"
+                    color="secondary.main"
+                    sx={{ fontWeight: 500, '&:hover': { color: 'primary.main' } }}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
 
               {/* Our Services Dropdown */}
               <Link
@@ -207,18 +225,68 @@ export default function Header({ layout = 'landing', ...others }) {
                 onClose={drawerToggler(false)}
                 sx={{ '& .MuiDrawer-paper': { backgroundImage: 'none' } }}
               >
-                <Box role="presentation" onKeyDown={drawerToggler(false)} sx={{ width: 'auto' }}>
+                <Box role="presentation" sx={{ width: '100%', p: 2 }}>
+                  {/* Close Button Header */}
+                  <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+                    <Typography variant="h6" fontWeight={600}>
+                      Menu
+                    </Typography>
+                    <IconButton onClick={drawerToggler(false)} size="small" color="inherit">
+                      <Close />
+                    </IconButton>
+                  </Stack>
                   <List>
-                    {[...menuLinks, { label: 'Our Services', to: '#' }].map((link, i) => (
-                      <Link key={i} component={RouterLink} to={link.to} style={{ textDecoration: 'none' }}>
-                        <ListItemButton>
+                    {menuLinks.map((link, i) =>
+                      link.disabled ? (
+                        <ListItemButton key={i} disabled>
                           <ListItemIcon>
                             <Minus />
                           </ListItemIcon>
-                          <ListItemText primary={link.label} slotProps={{ primary: { variant: 'h6', color: 'secondary.main' } }} />
+                          <ListItemText primary={link.label} />
                         </ListItemButton>
-                      </Link>
-                    ))}
+                      ) : (
+                        <Link key={i} component={RouterLink} to={link.to} style={{ textDecoration: 'none' }}>
+                          <ListItemButton onClick={drawerToggler(false)}>
+                            <ListItemIcon>
+                              <Minus />
+                            </ListItemIcon>
+                            <ListItemText primary={link.label} />
+                          </ListItemButton>
+                        </Link>
+                      )
+                    )}
+
+                    {/* OUR SERVICES COLLAPSIBLE SECTION */}
+                    <ListItemButton onClick={() => setServicesOpen(!servicesOpen)}>
+                      <ListItemIcon>
+                        <Minus />
+                      </ListItemIcon>
+                      <ListItemText primary="Our Services" />
+                    </ListItemButton>
+                    <Collapse in={servicesOpen} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding sx={{ pl: 4 }}>
+                        {services.map((section, idx) => (
+                          <Box key={idx} sx={{ mb: 2 }}>
+                            <Typography
+                              variant="subtitle2"
+                              sx={{
+                                fontWeight: 600,
+                                color: theme.palette.primary.main,
+                                mb: 0.5,
+                                mt: idx !== 0 ? 1 : 0
+                              }}
+                            >
+                              {section.title}
+                            </Typography>
+                            {section.items.map((item, subIdx) => (
+                              <ListItemButton key={subIdx} sx={{ pl: 2 }}>
+                                <ListItemText primary={item} primaryTypographyProps={{ fontSize: 14 }} />
+                              </ListItemButton>
+                            ))}
+                          </Box>
+                        ))}
+                      </List>
+                    </Collapse>
                   </List>
                 </Box>
               </Drawer>
