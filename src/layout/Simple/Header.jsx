@@ -79,7 +79,11 @@ const services = [
   },
   {
     title: 'Cloud Solutions',
-    items: ['Server', 'Domain', 'Elementor License', 'Visual Composer License']
+    items: ['Server', 'Domain', 'Infra Solution', 'Architectural Solutions']
+  },
+  {
+    title: 'B2B Services',
+    items: ['Lead Management', 'Data Solutions', 'Sales Targeting', 'Digital Marketing']
   }
 ];
 
