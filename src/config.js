@@ -69,8 +69,8 @@ const config = {
   menuCaption: true,
   miniDrawer: false,
   container: false,
-  mode: ThemeMode.AUTO,
-  presetColor: 'theme2',
+  mode: ThemeMode.LIGHT,
+  presetColor: 'theme0',
   themeDirection: ThemeDirection.LTR,
   themeContrast: false
 };
