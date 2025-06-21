@@ -10,13 +10,16 @@ import FaqSection from '../sections/landing/Faq';
 import WebDesignTrends from '../sections/landing/WebDesignTrends';
 import TechnologiesPage from '../sections/landing/Serivces';
 
+// assets
+import AuthBackground from '../assets/images/auth/AuthBackground';
+
 // ==============================|| SAMPLE PAGE ||============================== //
 
 export default function Landing() {
   return (
     <>
+      <AuthBackground />
       <Hero />
-      {/* Technologies & Services Page */}
       <TechnologiesPage />
       <ApproachSection />
       <WebDesignTrends />
