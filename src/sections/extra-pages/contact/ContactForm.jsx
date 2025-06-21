@@ -62,7 +62,11 @@ export default function ContactForm() {
   return (
     <Box sx={{ p: { xs: 2.5, sm: 0 } }}>
       <form ref={form} onSubmit={sendEmail}>
-        <Grid container spacing={5} sx={{ justifyContent: 'center' }}>
+        <Grid
+          container
+          spacing={5}
+          sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}
+        >
           <Grid size={{ xs: 12, sm: 10, lg: 6 }}>
             <Grid container spacing={3}>
               <Grid size={{ xs: 12, md: 6 }}>

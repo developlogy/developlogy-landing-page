@@ -59,7 +59,7 @@ export default function HeroPage() {
                       justifyContent: 'center',
                       alignItems: 'center',
                       flexWrap: 'wrap',
-                      textAlign: 'center',
+                      textAlign: 'center'
                       // px: { xs: 2, sm: 6 }
                     }}
                   >
@@ -111,7 +111,7 @@ export default function HeroPage() {
                   <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
                     <Grid>
                       <AnimateButton>
-                        <Button component={RouterLink} to="/login" target="_blank" size="large" color="primary" variant="contained">
+                        <Button component={RouterLink} to="/contact-us" target="_blank" size="large" color="primary" variant="contained">
                           Request a quote
                         </Button>
                       </AnimateButton>

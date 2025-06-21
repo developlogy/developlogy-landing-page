@@ -2,6 +2,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Container, Typography, B
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NorthEastIcon from '@mui/icons-material/NorthEast';
 import { useState } from 'react';
+import FadeInWhenVisible from './Animation';
 
 const faqs = [
   {
@@ -39,9 +40,11 @@ export default function FaqSection() {
 
   return (
     <Container sx={{ py: { xs: 6, md: 0 } }}>
-      <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
-        FAQs
-      </Typography>
+      <FadeInWhenVisible>
+        <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
+          FAQs
+        </Typography>
+      </FadeInWhenVisible>
 
       <Box mt={4}>
         {faqs.map((item, index) => (

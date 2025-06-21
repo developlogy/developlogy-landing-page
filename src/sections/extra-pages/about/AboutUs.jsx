@@ -8,9 +8,7 @@ export default function AboutUs() {
           <Typography variant="h3" fontWeight={700}>
             About Us
           </Typography>
-          <Typography variant="body1" color="text.secondary">
-            
-          </Typography>
+          <Typography variant="body1" color="text.secondary"></Typography>
         </Stack>
       </Container>
     </Box>

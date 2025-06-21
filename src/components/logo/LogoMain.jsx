@@ -27,7 +27,7 @@ export default function LogoMain() {
         xmlnsev="http://www.w3.org/2001/xml-events"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        <text fill={theme.palette.primary.main} fontFamily="Poppins" fontSize="30" fontWeight="bold" x="0px" y="40px">
+        <text fill={theme.palette.primary.main} fontFamily={theme.typography.fontFamily} fontSize="30" fontWeight="bold" x="0px" y="40px">
           Developlogy
         </text>
       </svg>

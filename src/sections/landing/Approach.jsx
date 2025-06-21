@@ -40,7 +40,7 @@ export default function ApproachSection() {
         </Typography>
       </FadeInWhenVisible>
 
-      <Grid container spacing={6} alignItems="center" mt={4}>
+      <Grid container spacing={3} sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}>
         {/* Left: Text */}
         <Grid item xs={12} md={7}>
           <Grid container spacing={4}>

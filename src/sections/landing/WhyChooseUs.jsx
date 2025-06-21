@@ -3,6 +3,7 @@ import MainCard from 'components/MainCard';
 import LayersOutlinedIcon from '@mui/icons-material/LayersOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
+import FadeInWhenVisible from './Animation';
 
 const features = [
   {
@@ -40,9 +41,11 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <Container sx={{ py: { xs: 6, md: 10 } }}>
-      <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
-        Why Choose Developlogy?
-      </Typography>
+      <FadeInWhenVisible>
+        <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
+          Why Choose Developlogy?
+        </Typography>
+      </FadeInWhenVisible>
 
       <Grid container spacing={4} mt={2}>
         {features.map((item, index) => (

@@ -8,7 +8,7 @@ import ApproachSection from '../sections/landing/Approach';
 import WhyChooseUs from '../sections/landing/WhyChooseUs';
 import FaqSection from '../sections/landing/Faq';
 import WebDesignTrends from '../sections/landing/WebDesignTrends';
-import TechnologiesPage from '../sections/landing/Technologies';
+import TechnologiesPage from '../sections/landing/Serivces';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 

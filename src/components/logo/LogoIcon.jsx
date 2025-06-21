@@ -17,7 +17,7 @@ export default function LogoIcon() {
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
         <rect fill={theme.palette.primary.main} height="20" rx="4" ry="4" width="20" x="4" y="4" />
-        <text fill={theme.palette.primary.main} fontFamily="Poppins" fontSize="16" fontWeight="bold" x="30" y="20">
+        <text fill={theme.palette.primary.main} fontFamily={theme.typography.fontFamily} fontSize="16" fontWeight="bold" x="30" y="20">
           Developlogy
         </text>
       </svg>
