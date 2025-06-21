@@ -5,6 +5,7 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import PieChartOutlineIcon from '@mui/icons-material/PieChartOutline';
 import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
+import FadeInWhenVisible from './Animation';
 
 const trends = [
   {
@@ -38,11 +39,18 @@ const trends = [
 export default function WebDesignTrends() {
   return (
     <Container sx={{ py: { xs: 6, md: 10 } }}>
-      <Typography variant="h4" align="center" fontWeight={700} gutterBottom>
-        Trends in Web Design in India
-      </Typography>
+      <FadeInWhenVisible>
+        <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
+          Trends in Web Design in India
+        </Typography>
+      </FadeInWhenVisible>
 
-      <Grid container spacing={3} mt={2} justifyContent="center">
+      <Grid
+        container
+        spacing={3}
+        mt={2}
+        sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}
+      >
         {trends.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <MainCard
@@ -51,10 +59,10 @@ export default function WebDesignTrends() {
                 height: '100%',
                 bgcolor: item.active ? 'primary.lighter' : 'background.paper',
                 boxShadow: item.active ? 4 : 1,
-                '&:hover': {
-                  boxShadow: 6,
-                  cursor: 'pointer'
-                },
+                // '&:hover': {
+                //   boxShadow: 6,
+                //   cursor: 'pointer'
+                // },
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2

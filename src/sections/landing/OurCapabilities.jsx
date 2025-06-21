@@ -7,6 +7,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import PersonIcon from '@mui/icons-material/Person';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import FadeInWhenVisible from './Animation';
 
 const capabilities = [
   {
@@ -45,19 +46,29 @@ export default function OurCapabilities() {
   return (
     <Box sx={{ py: { xs: 8, md: 0 } }}>
       <Container>
-        <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
-          Our Capabilities
-        </Typography>
+        <FadeInWhenVisible>
+          <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
+            Our Capabilities
+          </Typography>
+        </FadeInWhenVisible>
 
-        <Typography variant="h4" align="center" fontWeight={700} gutterBottom>
-          We Craft Exceptional Websites And Apps Entirely In-House, Ensuring End-To-End Precision And Uncompromising Excellence
-        </Typography>
+        <FadeInWhenVisible>
+          <Typography variant="h5" align="center" fontWeight={700} gutterBottom>
+            We Craft Exceptional Websites And Apps Entirely In-House, Ensuring End-To-End Precision And Uncompromising Excellence
+          </Typography>
+        </FadeInWhenVisible>
 
-        <Typography variant="h5" align="center" color="primary" fontWeight={700} mt={6} mb={4}>
-          Why Join Hands With Us?
-        </Typography>
+        <FadeInWhenVisible>
+          <Typography variant="h6" align="center" fontWeight={700} gutterBottom>
+            Why Join Hands With Us?
+          </Typography>
+        </FadeInWhenVisible>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Grid
+          container
+          spacing={3}
+          sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}
+        >
           {capabilities.map((cap, index) => (
             <Grid item xs={12} sm={6} key={index}>
               <Stack direction="row" spacing={2} alignItems="flex-start">
