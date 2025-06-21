@@ -2,7 +2,7 @@ export const slogans = [
   'Code smarter, dream bigger, achieve faster.',
   'Elevate your brand - one search at a time.',
   'Building credibility, one verified fact at a time.',
-  'Seamless IT solutions that keep your growth always online.'
+  'Seamless IT Solutions for nonstop growth.'
 ];
 
 export const services = [
@@ -33,8 +33,7 @@ export const services = [
   },
   {
     title: 'Cloud Solutions',
-    description:
-      'Experience seamless connectivity with our secure, flexible cloud services that streamline operations and drive innovation.',
+    description: 'Experience seamless connectivity with our secure, flexible cloud services that streamline operations and drive innovation.',
     image: '/images/services/cloud.png'
   }
 ];

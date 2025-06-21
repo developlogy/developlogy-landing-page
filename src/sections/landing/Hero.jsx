@@ -7,20 +7,12 @@ import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import CardMedia from '@mui/material/CardMedia';
-import Link from '@mui/material/Link';
-import Rating from '@mui/material/Rating';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
 
 // project-imports
-import { techData } from 'data/tech-data';
-import { slogans, services } from '../../data/services';
-import { useIspValue } from 'hooks/useIspValue';
-import TechnologiesPage from './Technologies';
+import { slogans } from '../../data/services';
 
 // third-party
 import { motion, AnimatePresence } from 'framer-motion';
@@ -29,9 +21,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AnimateButton from 'components/@extended/AnimateButton';
 
 export default function HeroPage() {
-  const ispValueAvailable = useIspValue();
   const theme = useTheme();
-
   const [currentSlogan, setCurrentSlogan] = useState(0);
 
   useEffect(() => {
@@ -46,31 +36,8 @@ export default function HeroPage() {
     return [slogan.slice(0, midpoint), slogan.slice(midpoint)];
   };
 
-  const techBottom = techData.map((item, index) => {
-    const finalUrl = item.url !== '#!' && ispValueAvailable ? `${item.url}?isp=1` : item.url;
-    return (
-      <Grid key={index} sx={{ minWidth: { xs: 60, md: 90 } }}>
-        <motion.div
-          initial={{ opacity: 0, translateY: 550 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.8 }}
-        >
-          <Tooltip title={item.tooltipTitle}>
-            <Link
-              component={item.label === 'React MUI' ? RouterLink : Link}
-              {...(item.label === 'React MUI' ? { to: finalUrl } : { href: finalUrl })}
-              target={item.target}
-            >
-              <CardMedia component="img" image={item.image} sx={{ width: 'auto', height: { xs: 60, md: 'auto' } }} />
-            </Link>
-          </Tooltip>
-        </motion.div>
-      </Grid>
-    );
-  });
-
   return (
-    <Box sx={{ minHeight: '100vh', position: 'relative', pb: 12.5, pt: 30, display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ minHeight: '60vh', position: 'relative', pb: 12.5, pt: 30, display: 'flex', alignItems: 'center' }}>
       <Container>
         <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', pt: { md: 0, xs: 10 }, pb: { md: 0, xs: 22 } }}>
           <Grid size={{ xs: 12, md: 9 }}>
@@ -93,7 +60,7 @@ export default function HeroPage() {
                       alignItems: 'center',
                       flexWrap: 'wrap',
                       textAlign: 'center',
-                      px: { xs: 2, sm: 6 }
+                      // px: { xs: 2, sm: 6 }
                     }}
                   >
                     <AnimatePresence mode="wait">
@@ -155,9 +122,6 @@ export default function HeroPage() {
             </Grid>
           </Grid>
         </Grid>
-
-        {/* Technologies & Services Page */}
-        <TechnologiesPage />
       </Container>
     </Box>
   );
