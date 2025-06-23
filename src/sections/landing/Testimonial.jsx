@@ -109,7 +109,7 @@ export default function TestimonialPage() {
     <>
       <Box sx={{ mt: { md: 0, xs: 2.5 } }}>
         <Container>
-          <Grid container spacing={2} sx={{ justifyContent: 'center', textAlign: 'center', marginBottom: 4, paddingTop: 3 }}>
+          <Grid container spacing={2} sx={{ justifyContent: 'center', textAlign: 'center', marginBottom: 4, paddingTop: 5 }}>
             <Grid size={12}>
               <motion.div
                 initial={{ opacity: 0, translateY: 550 }}

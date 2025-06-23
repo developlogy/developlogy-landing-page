@@ -21,6 +21,12 @@ import { useIspValue } from 'hooks/useIspValue';
 // assets
 import { ExportSquare } from 'iconsax-react';
 import GithubIcon from 'assets/third-party/github';
+import { Box } from '@mui/system';
+
+//Image Slider
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 // ==============================|| LANDING - TECHNOLOGIES PAGE ||============================== //
 
@@ -35,7 +41,7 @@ export default function TechnologiesPage() {
         </Typography>
       </FadeInWhenVisible>
 
-      <Grid container spacing={3} sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}>
+      <Grid container spacing={3} sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 5, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}>
         {techData.map((tech, index) => (
           <Grid key={index} size={{ xs: 12, md: 6, lg: 4 }}>
             <FadeInWhenVisible>
@@ -49,17 +55,34 @@ export default function TechnologiesPage() {
                   }
                 }}
               >
-                <CardMedia
-                  component="img"
-                  image={tech.image}
-                  sx={{
-                    width: '100%',
-                    height: 180,
-                    objectFit: 'contain',
-                    borderRadius: 1,
-                    mb: 2
-                  }}
-                />
+                {/* Image scroller */}
+                <Slider
+                  dots={false}
+                  infinite
+                  autoplay
+                  autoplaySpeed={3000}
+                  arrows={false}
+                  speed={500}
+                  slidesToShow={1}
+                  slidesToScroll={1}
+                  pauseOnHover
+                >
+                  {tech.images.map((img, idx) => (
+                    <CardMedia
+                      key={idx}
+                      component="img"
+                      image={img}
+                      sx={{
+                        width: '100%',
+                        height: 180,
+                        objectFit: 'cover',
+                        borderRadius: 1,
+                        mb: 2
+                      }}
+                    />
+                  ))}
+                </Slider>
+
                 <Typography variant="h5" gutterBottom>
                   {tech.label}
                 </Typography>

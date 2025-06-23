@@ -38,7 +38,7 @@ export default function HeroPage() {
 
   return (
     <Box sx={{ minHeight: '60vh', position: 'relative', pb: 12.5, pt: 30, display: 'flex', alignItems: 'center' }}>
-      <Container>
+      <Container sx={{ px: { xs: 6, md: 0 } }}>
         <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', pt: { md: 0, xs: 10 }, pb: { md: 0, xs: 22 } }}>
           <Grid size={{ xs: 12, md: 9 }}>
             <Grid container spacing={3} sx={{ textAlign: 'center' }}>

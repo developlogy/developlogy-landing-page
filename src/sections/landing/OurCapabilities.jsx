@@ -44,61 +44,55 @@ const capabilities = [
 
 export default function OurCapabilities() {
   return (
-    <Box sx={{ py: { xs: 8, md: 0 } }}>
-      <Container>
-        <FadeInWhenVisible>
-          <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
-            Our Capabilities
-          </Typography>
-        </FadeInWhenVisible>
+    <Container>
+      <FadeInWhenVisible>
+        <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
+          Our Capabilities
+        </Typography>
+      </FadeInWhenVisible>
 
-        <FadeInWhenVisible>
-          <Typography variant="h5" align="center" fontWeight={700} gutterBottom>
-            We Craft Exceptional Websites And Apps Entirely In-House, Ensuring End-To-End Precision And Uncompromising Excellence
-          </Typography>
-        </FadeInWhenVisible>
+      <FadeInWhenVisible>
+        <Typography variant="h5" align="center" fontWeight={700} gutterBottom>
+          We Craft Exceptional Websites And Apps Entirely In-House, Ensuring End-To-End Precision And Uncompromising Excellence
+        </Typography>
+      </FadeInWhenVisible>
 
-        <FadeInWhenVisible>
-          <Typography variant="h6" align="center" fontWeight={700} gutterBottom>
-            Why Join Hands With Us?
-          </Typography>
-        </FadeInWhenVisible>
+      <FadeInWhenVisible>
+        <Typography variant="h6" align="center" fontWeight={700} gutterBottom>
+          Why Join Hands With Us?
+        </Typography>
+      </FadeInWhenVisible>
 
-        <Grid
-          container
-          spacing={3}
-          sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}
-        >
-          {capabilities.map((cap, index) => (
-            <Grid item xs={12} sm={6} key={index}>
-              <Stack direction="row" spacing={2} alignItems="flex-start">
-                {cap.icon}
-                <Box>
-                  <Typography variant="h6" fontWeight={600}>
-                    {cap.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {cap.description}
-                  </Typography>
-                </Box>
-              </Stack>
-            </Grid>
-          ))}
-        </Grid>
+      <Grid container spacing={3} sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}>
+        {capabilities.map((cap, index) => (
+          <Grid item xs={12} sm={6} key={index}>
+            <Stack direction="row" spacing={2} alignItems="flex-start">
+              {cap.icon}
+              <Box>
+                <Typography variant="h6" fontWeight={600}>
+                  {cap.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {cap.description}
+                </Typography>
+              </Box>
+            </Stack>
+          </Grid>
+        ))}
+      </Grid>
 
-        {/* CTA Section */}
-        <Box mt={10} textAlign="center">
-          <Typography variant="h3" fontWeight={700} color="primary" sx={{ mb: 1 }}>
-            Have a project in mind?
-          </Typography>
-          <Typography variant="h4" fontWeight={600} sx={{ mb: 4 }}>
-            Let&apos;s Connect
-          </Typography>
-          <Button component={RouterLink} to="/contact-us" variant="contained" size="large" endIcon={<ArrowForwardIcon />}>
-            Let&apos;s Talk
-          </Button>
-        </Box>
-      </Container>
-    </Box>
+      {/* CTA Section */}
+      <Box mt={10} textAlign="center">
+        <Typography variant="h3" fontWeight={700} color="primary" sx={{ mb: 1 }}>
+          Have a project in mind?
+        </Typography>
+        <Typography variant="h4" fontWeight={600} sx={{ mb: 4 }}>
+          Let&apos;s Connect
+        </Typography>
+        <Button component={RouterLink} to="/contact-us" variant="contained" size="large" endIcon={<ArrowForwardIcon />}>
+          Let&apos;s Talk
+        </Button>
+      </Box>
+    </Container>
   );
 }

@@ -12,7 +12,7 @@ const trends = [
     icon: <LayersOutlinedIcon sx={{ fontSize: 40 }} />,
     title: 'Minimal and Clean Design',
     description: 'Emphasis on simplicity and clarity for better user experience.',
-    active: true
+    active: false
   },
   {
     icon: <GroupsOutlinedIcon sx={{ fontSize: 40 }} />,
@@ -38,19 +38,14 @@ const trends = [
 
 export default function WebDesignTrends() {
   return (
-    <Container sx={{ py: { xs: 6, md: 10 } }}>
+    <Container>
       <FadeInWhenVisible>
         <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
           Trends in Web Design in India
         </Typography>
       </FadeInWhenVisible>
 
-      <Grid
-        container
-        spacing={3}
-        mt={2}
-        sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}
-      >
+      <Grid container spacing={3} sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 5, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}>
         {trends.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <MainCard
@@ -59,10 +54,11 @@ export default function WebDesignTrends() {
                 height: '100%',
                 bgcolor: item.active ? 'primary.lighter' : 'background.paper',
                 boxShadow: item.active ? 4 : 1,
-                // '&:hover': {
-                //   boxShadow: 6,
-                //   cursor: 'pointer'
-                // },
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 6
+                },
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2

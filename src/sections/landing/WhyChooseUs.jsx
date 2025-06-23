@@ -40,37 +40,49 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <Container sx={{ py: { xs: 6, md: 10 } }}>
+    <Container sx={{ py: { xs: 6, md: 0 } }}>
       <FadeInWhenVisible>
         <Typography variant="h3" align="center" fontWeight={700} gutterBottom>
           Why Choose Developlogy?
         </Typography>
       </FadeInWhenVisible>
 
-      <Grid container spacing={4} mt={2}>
+      <Grid
+        container
+        spacing={3}
+        sx={{
+          mt: { md: 5, xs: 2.5 },
+          mb: { md: 10, xs: 2.5 },
+          alignItems: 'stretch'
+        }}
+      >
         {features.map((item, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex' }}>
             <MainCard
               border
-              boxShadow
               sx={{
-                p: 3,
-                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 2,
-                alignItems: 'flex-start',
-                justifyContent: 'flex-start',
-                textAlign: 'left'
+                justifyContent: 'space-between',
+                height: '100%',
+                width: '100%',
+                p: 3,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 6
+                }
               }}
             >
-              {item.icon}
-              <Typography variant="h6" fontWeight={600}>
-                {item.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item.description}
-              </Typography>
+              <Box flexGrow={1} display="flex" flexDirection="column" gap={2}>
+                {item.icon}
+                <Typography variant="h6" fontWeight={600}>
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.description}
+                </Typography>
+              </Box>
             </MainCard>
           </Grid>
         ))}
