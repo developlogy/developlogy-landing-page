@@ -1,24 +1,37 @@
-// material-ui
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import { Box } from '@mui/system';
+import { Box, Container, Typography, Stack, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
+import FadeInWhenVisible from './Animation';
 
-// project-imports
-import ContactForm from 'sections/extra-pages/contact/ContactForm';
-import ContactHeader from 'sections/extra-pages/contact/ContactHeader';
+// Glassmorphism card component
+const GlassCard = ({ children, sx = {} }) => (
+  <Box
+    sx={{
+      background: 'rgba(255, 255, 255, 0.05)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: '16px',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      p: 4,
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-5px)',
+        borderColor: 'rgba(255, 255, 255, 0.3)',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)'
+      },
+      ...sx
+    }}
+  >
+    {children}
+  </Box>
+);
 
-// ==============================|| CONTACT US - MAIN ||============================== //
-
-export default function ContactUS() {
+export default function MissionSection() {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
-        minHeight: '100vh',
+        py: 10,
         position: 'relative',
         overflow: 'hidden',
-        py: 8,
+        background: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -73,16 +86,51 @@ export default function ContactUS() {
         ))}
       </Box>
 
-      <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
-        <Grid container spacing={6} justifyContent="center">
-          <Grid item xs={12}>
-            <ContactHeader />
-          </Grid>
+      <Container sx={{ position: 'relative', zIndex: 2 }}>
+        <FadeInWhenVisible>
+          <GlassCard sx={{ mb: 6 }}>
+            <Stack spacing={3}>
+              <Typography
+                variant="h2"
+                fontWeight={800}
+                sx={{
+                  color: 'common.white',
+                  textAlign: 'center',
+                  background: 'linear-gradient(90deg, #25a1f4, #f91fa9)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                Our Mission
+              </Typography>
 
-          <Grid item xs={12} md={10} lg={8}>
-            <ContactForm />
-          </Grid>
-        </Grid>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  lineHeight: 1.8,
+                  fontSize: '1.1rem'
+                }}
+              >
+                At Delelplogy, our mission is simple: to empower businesses with smart, scalable, and meaningful digital solutions. We
+                combine strategy, creativity, and technology to help brands grow — not just for the short term, but with real momentum that
+                lasts.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  lineHeight: 1.8,
+                  fontSize: '1.1rem'
+                }}
+              >
+                Every solution we deliver is rooted in clarity, purpose, and measurable impact.
+              </Typography>
+            </Stack>
+          </GlassCard>
+        </FadeInWhenVisible>
       </Container>
 
       {/* Floating gradient elements */}
@@ -99,10 +147,10 @@ export default function ContactUS() {
         }}
         sx={{
           position: 'absolute',
-          bottom: 50,
-          right: 100,
-          width: 150,
-          height: 150,
+          top: '30%',
+          left: '10%',
+          width: 200,
+          height: 200,
           borderRadius: '50%',
           background: 'linear-gradient(45deg, #25a1f4, #f91fa9)',
           opacity: 0.1,
@@ -126,10 +174,10 @@ export default function ContactUS() {
         }}
         sx={{
           position: 'absolute',
-          top: 100,
-          left: 50,
-          width: 200,
-          height: 200,
+          bottom: '20%',
+          right: '10%',
+          width: 250,
+          height: 250,
           borderRadius: '50%',
           background: 'linear-gradient(45deg, #f91fa9, #25a1f4)',
           opacity: 0.1,

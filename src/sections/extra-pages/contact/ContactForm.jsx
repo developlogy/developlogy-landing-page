@@ -1,19 +1,29 @@
+// Updated ContactForm.jsx
 import { useRef, useState } from 'react';
-
-// material-ui
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid2';
-import MenuItem from '@mui/material/MenuItem';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-
-// email functionality dependency
+import { motion } from 'framer-motion';
+import { Button, Checkbox, Grid, MenuItem, Stack, TextField, Typography, Box } from '@mui/material';
 import emailjs from 'emailjs-com';
 
-// select company-size
+const GlassCard = ({ children }) => (
+  <Box
+    sx={{
+      background: 'rgba(255, 255, 255, 0.05)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: '16px',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      p: 4,
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-5px)',
+        borderColor: 'rgba(255, 255, 255, 0.3)',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)'
+      }
+    }}
+  >
+    {children}
+  </Box>
+);
+
 const sizes = [
   { value: '1', label: '1 - 5' },
   { value: '2', label: '5 - 10' },
@@ -27,15 +37,22 @@ export default function ContactForm() {
     lastname: '',
     email: '',
     phone: '',
-    size: ''
+    size: '',
+    agree: false
   });
 
   const handleChange = (field) => (event) => {
-    setFormData({ ...formData, [field]: event.target.value });
+    const value = field === 'agree' ? event.target.checked : event.target.value;
+    setFormData({ ...formData, [field]: value });
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!formData.agree) {
+      alert('Please agree to the Terms & Conditions');
+      return;
+    }
 
     emailjs.sendForm('service_3ryb7ns', 'template_t7z91j7', form.current, '7KPOS0OJb3w-sFqz7').then(
       (result) => {
@@ -46,11 +63,9 @@ export default function ContactForm() {
           lastname: '',
           email: '',
           phone: '',
-          size: ''
+          size: '',
+          agree: false
         });
-
-        // Redirect to homepage
-        window.location.href = '/';
       },
       (error) => {
         console.error('Email sending error:', error.text);
@@ -60,107 +75,221 @@ export default function ContactForm() {
   };
 
   return (
-    <Box sx={{ p: { xs: 2.5, sm: 0 } }}>
+    <GlassCard>
       <form ref={form} onSubmit={sendEmail}>
-        <Grid
-          container
-          spacing={5}
-          sx={{ alignItems: 'center', justifyContent: 'center', mt: { md: 15, xs: 2.5 }, mb: { md: 10, xs: 2.5 } }}
-        >
-          <Grid size={{ xs: 12, sm: 10, lg: 6 }}>
-            <Grid container spacing={3}>
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Stack sx={{ gap: 1 }}>
-                  <Typography variant="subtitle1" color="secondary">
-                    First Name
-                  </Typography>
-                  <TextField
-                    fullWidth
-                    type="text"
-                    placeholder="First name"
-                    name="firstname"
-                    value={formData.firstname}
-                    onChange={handleChange('firstname')}
-                  />
-                </Stack>
-              </Grid>
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Stack sx={{ gap: 1 }}>
-                  <Typography variant="subtitle1" color="secondary">
-                    Last Name
-                  </Typography>
-                  <TextField
-                    fullWidth
-                    type="text"
-                    placeholder="Last name"
-                    name="lastname"
-                    value={formData.lastname}
-                    onChange={handleChange('lastname')}
-                  />
-                </Stack>
-              </Grid>
-              <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <Typography variant="subtitle1" color="secondary">
-                    Email Address
-                  </Typography>
-                  <TextField
-                    fullWidth
-                    type="email"
-                    placeholder="Email Address"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange('email')}
-                  />
-                </Stack>
-              </Grid>
-              <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <Typography variant="subtitle1" color="secondary">
-                    Phone Number
-                  </Typography>
-                  <TextField
-                    fullWidth
-                    type="tel"
-                    placeholder="Phone Number"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange('phone')}
-                  />
-                </Stack>
-              </Grid>
-              <Grid size={12}>
-                <TextField select fullWidth name="size" value={formData.size} onChange={handleChange('size')}>
-                  <MenuItem disabled value="">
-                    Select Company Size
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h4"
+              fontWeight={700}
+              sx={{
+                color: 'common.white',
+                background: 'linear-gradient(90deg, #25a1f4, #f91fa9)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              Get in Touch
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} md={12}>
+            <Stack spacing={3}>
+              <TextField
+                fullWidth
+                label="First Name"
+                variant="outlined"
+                name="firstname"
+                value={formData.firstname}
+                onChange={handleChange('firstname')}
+                required
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(255, 255, 255, 0.7)'
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    color: 'common.white',
+                    '& fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#25a1f4'
+                    }
+                  }
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label="Last Name"
+                variant="outlined"
+                name="lastname"
+                value={formData.lastname}
+                onChange={handleChange('lastname')}
+                required
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(255, 255, 255, 0.7)'
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    color: 'common.white',
+                    '& fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#25a1f4'
+                    }
+                  }
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label="Email Address"
+                variant="outlined"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange('email')}
+                required
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(255, 255, 255, 0.7)'
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    color: 'common.white',
+                    '& fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#25a1f4'
+                    }
+                  }
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label="Phone Number"
+                variant="outlined"
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange('phone')}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(255, 255, 255, 0.7)'
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    color: 'common.white',
+                    '& fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#25a1f4'
+                    }
+                  }
+                }}
+              />
+
+              <TextField
+                select
+                fullWidth
+                label="Company Size"
+                variant="outlined"
+                name="size"
+                value={formData.size}
+                onChange={handleChange('size')}
+                sx={{
+                  '& .MuiInputLabel-root': {
+                    color: 'rgba(255, 255, 255, 0.7)'
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    color: 'common.white',
+                    '& fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#25a1f4'
+                    }
+                  },
+                  '& .MuiSelect-icon': {
+                    color: 'rgba(255, 255, 255, 0.7)'
+                  }
+                }}
+              >
+                {sizes.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
                   </MenuItem>
-                  {sizes.map((option, index) => (
-                    <MenuItem key={index} value={option.label}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
-              <Grid size={12}>
-                <Stack direction="row" sx={{ alignItems: 'center', ml: -1 }}>
-                  <Checkbox defaultChecked />
-                  <Typography>
-                    I agree to all the{' '}
-                    <Typography component="span" sx={{ color: 'primary.main', cursor: 'pointer' }}>
-                      Terms & Condition
-                    </Typography>
-                  </Typography>
-                </Stack>
-              </Grid>
-              <Grid size={12}>
-                <Button variant="contained" fullWidth type="submit">
-                  Submit
-                </Button>
-              </Grid>
-            </Grid>
+                ))}
+              </TextField>
+            </Stack>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Stack direction="row" alignItems="center">
+              <Checkbox
+                checked={formData.agree}
+                onChange={handleChange('agree')}
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  '&.Mui-checked': {
+                    color: '#25a1f4'
+                  }
+                }}
+              />
+              <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                I agree to all the{' '}
+                <Box component="span" sx={{ color: '#25a1f4', cursor: 'pointer' }}>
+                  Terms & Conditions
+                </Box>
+              </Typography>
+            </Stack>
+          </Grid>
+
+          <Grid item xs={12} sx={{ textAlign: 'center' }}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                variant="contained"
+                type="submit"
+                size="large"
+                sx={{
+                  background: 'linear-gradient(90deg, #25a1f4, #f91fa9)',
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                  py: 1.5,
+                  px: 6,
+                  borderRadius: '50px',
+                  boxShadow: '0 4px 15px rgba(249, 31, 169, 0.3)',
+                  '&:hover': {
+                    background: 'linear-gradient(90deg, #1d8fd8, #e01a96)',
+                    boxShadow: '0 6px 20px rgba(249, 31, 169, 0.5)'
+                  }
+                }}
+              >
+                Submit Request
+              </Button>
+            </motion.div>
           </Grid>
         </Grid>
       </form>
-    </Box>
+    </GlassCard>
   );
 }

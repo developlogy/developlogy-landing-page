@@ -12,6 +12,8 @@ import TechnologiesPage from '../sections/landing/Serivces';
 
 // assets
 import AuthBackground from '../assets/images/auth/AuthBackground';
+import VisionSection from '../sections/landing/VisionSection';
+import MissionSection from '../sections/landing/MissionSection';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -23,10 +25,12 @@ export default function Landing() {
       <TechnologiesPage />
       <ApproachSection />
       <WebDesignTrends />
+      <VisionSection />
+      <MissionSection />
       <WhyChooseUs />
       <FaqSection />
       <Testimonial />
-      <Divider sx={{ borderColor: 'secondary.light' }} />
+      <Divider sx={{ borderColor: 'secondary.dark' }} />
     </>
   );
 }
