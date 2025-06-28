@@ -9,7 +9,7 @@ const CloudSolutionsSection = () => {
       title: 'Cloud Solutions',
       tagline: 'Simplified, scalable, stable — cloud that works for your business.',
       content: [
-        "The cloud isn't just some buzzword — it's where modern businesses run. At Delelplogy, we help you set up the right cloud foundation without overcomplicating things. Whether you're launching a project, growing fast, or just want to avoid downtime and chaos, we've got you covered.",
+        "The cloud isn't just some buzzword — it's where modern businesses run. At Developlogy, we help you set up the right cloud foundation without overcomplicating things. Whether you're launching a project, growing fast, or just want to avoid downtime and chaos, we've got you covered.",
         "We handle the essentials — setting up your server, managing your domain, and making sure your infrastructure actually supports your day-to-day operations. And when it comes to bigger-picture planning? We offer cloud architecture solutions that are built around what your business actually needs — not just what's trending in tech.",
         'We keep things clean, stable, and scalable. No confusing setups. No unnecessary tools. Just cloud solutions that work quietly in the background while you stay focused on building your business.'
       ],

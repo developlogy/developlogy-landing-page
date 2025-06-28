@@ -422,14 +422,14 @@ export default function ApproachSection() {
               {index < 4 && (
                 <Box
                   component={motion.div}
-                  animate={{
-                    rotate: [0, 10, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                  }}
+                  // animate={{
+                  //   rotate: [0, 10, 0]
+                  // }}
+                  // transition={{
+                  //   duration: 3,
+                  //   repeat: Infinity,
+                  //   ease: 'easeInOut'
+                  // }}
                   sx={{
                     color: 'rgba(255, 255, 255, 0.5)',
                     fontSize: '1.5rem',

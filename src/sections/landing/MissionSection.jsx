@@ -113,7 +113,7 @@ export default function MissionSection() {
                   fontSize: '1.1rem'
                 }}
               >
-                At Delelplogy, our mission is simple: to empower businesses with smart, scalable, and meaningful digital solutions. We
+                At Developlogy, our mission is simple: to empower businesses with smart, scalable, and meaningful digital solutions. We
                 combine strategy, creativity, and technology to help brands grow — not just for the short term, but with real momentum that
                 lasts.
               </Typography>

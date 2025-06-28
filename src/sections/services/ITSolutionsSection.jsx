@@ -9,9 +9,9 @@ const ITSolutionsSection = () => {
       title: 'IT Solutions',
       tagline: 'Custom tech that solves real business problems.',
       content: [
-        "Not every business needs a fancy app or complex system — but when you do need something built, it should actually work the way you need it to. That's what we focus on at Delelplogy. Our team builds software solutions that are clean, reliable, and built around your real-world needs — not guesswork or shortcuts.",
+        "Not every business needs a fancy app or complex system — but when you do need something built, it should actually work the way you need it to. That's what we focus on at Developlogy. Our team builds software solutions that are clean, reliable, and built around your real-world needs — not guesswork or shortcuts.",
         "Whether it's a fast, responsive website that reflects your brand, or a custom mobile app designed to make your product easier to access, we approach every project with one goal: keep it simple, smart, and scalable. We don't overcomplicate. We listen, plan, and build tech that makes sense — for your business, your team, and your users.",
-        "At the end of the day, it's not just about code — it's about solving problems. And that's what Delelplogy is here to do."
+        "At the end of the day, it's not just about code — it's about solving problems. And that's what Developlogy is here to do."
       ],
       services: ['Software Solutions', 'Web Development', 'Mobile App Development']
     }

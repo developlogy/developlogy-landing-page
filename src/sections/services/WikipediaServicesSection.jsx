@@ -9,7 +9,7 @@ const WikipediaServicesSection = () => {
       title: 'Wikipedia Services',
       tagline: 'Credibility, visibility, and compliance — done right.',
       content: [
-        "Having a Wikipedia page can add real trust to your name — but getting there isn't as simple as hitting 'publish.' At Delelplogy, we help individuals, brands, and businesses build a strong, lasting presence on one of the most respected platforms on the web.",
+        "Having a Wikipedia page can add real trust to your name — but getting there isn't as simple as hitting 'publish.' At Developlogy, we help individuals, brands, and businesses build a strong, lasting presence on one of the most respected platforms on the web.",
         "We take care of the entire process — from page creation to regular monitoring and maintenance — making sure everything stays accurate, up to date, and within Wikipedia's strict guidelines. Our team handles both new and existing pages, offering page editing services that clean up outdated info or improve how your story is told.",
         "Every article we work on starts with solid, well-researched content writing. We focus on facts, not fluff — because getting a page approved (and keeping it live) takes more than just good writing. It takes experience, and that's exactly what we bring."
       ],

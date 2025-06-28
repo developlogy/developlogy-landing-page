@@ -113,7 +113,7 @@ export default function VisionSection() {
                 }}
               >
                 We see a future where businesses don't have to choose between creativity, performance, and reliability — they get it all in
-                one place. At Delelplogy, our vision is to become a trusted global partner for brands that want more than just a service —
+                one place. At Developlogy, our vision is to become a trusted global partner for brands that want more than just a service —
                 they want a team that listens, thinks, and builds with them.
               </Typography>
 
