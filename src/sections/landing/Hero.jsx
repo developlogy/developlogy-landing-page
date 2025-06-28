@@ -45,7 +45,7 @@ export default function HeroPage() {
         overflow: 'hidden',
         background: 'radial-gradient(ellipse at center, #0f0c29 0%, #302b63 50%, #24243e 100%)',
         pt: 15,
-        // pb: 2,
+        pb: 2,
         '&::before': {
           content: '""',
           position: 'absolute',
