@@ -220,7 +220,7 @@ function OurStorySection() {
               <Grid container spacing={4} justifyContent="center">
                 <Grid item xs={12} sm={4}>
                   <Typography variant="h2" fontWeight={700} sx={{ color: '#25a1f4' }}>
-                    100+
+                    5+
                   </Typography>
                   <Typography variant="h6" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                     Projects Completed
@@ -228,7 +228,7 @@ function OurStorySection() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Typography variant="h2" fontWeight={700} sx={{ color: '#f91fa9' }}>
-                    50+
+                    10
                   </Typography>
                   <Typography variant="h6" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                     Happy Clients
@@ -236,7 +236,7 @@ function OurStorySection() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Typography variant="h2" fontWeight={700} sx={{ color: '#25a1f4' }}>
-                    10+
+                    2+
                   </Typography>
                   <Typography variant="h6" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                     Years Experience

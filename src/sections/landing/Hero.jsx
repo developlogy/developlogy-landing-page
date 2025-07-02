@@ -45,7 +45,7 @@ export default function HeroPage() {
         overflow: 'hidden',
         background: 'radial-gradient(ellipse at center, #0f0c29 0%, #302b63 50%, #24243e 100%)',
         pt: 15,
-        // pb: 2,
+        pb: 2,
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -420,10 +420,10 @@ export default function HeroPage() {
           }}
         >
           {[
-            { value: '1.2K', label: 'Active Clients' },
+            { value: '10', label: 'Active Clients' },
             { value: '98%', label: 'Client Retention' },
             { value: '4.8/5', label: 'Satisfaction Rating' },
-            { value: '15+', label: 'Years Experience' }
+            { value: '2+', label: 'Years Experience' }
           ].map((stat, index) => (
             <Box
               key={index}

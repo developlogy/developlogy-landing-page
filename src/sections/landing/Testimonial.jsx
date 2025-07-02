@@ -276,7 +276,7 @@ export default function TestimonialPage() {
         </Grid>
 
         {/* Stats counter */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -286,8 +286,8 @@ export default function TestimonialPage() {
             {[
               { value: '4.8/5', label: 'Average Rating' },
               { value: '98%', label: 'Client Satisfaction' },
-              { value: '1.2K+', label: 'Active Users' },
-              { value: '15+', label: 'Years Experience' }
+              { value: '10', label: 'Active Users' },
+              { value: '2+', label: 'Years Experience' }
             ].map((stat, index) => (
               <Grid item key={index}>
                 <Typography
@@ -310,7 +310,7 @@ export default function TestimonialPage() {
               </Grid>
             ))}
           </Grid>
-        </motion.div>
+        </motion.div> */}
 
         {/* Testimonial marquees */}
         <Box sx={{ mb: 4 }}>

@@ -2,8 +2,6 @@ import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 // project-imports
-import ComponentsRoutes from './ComponentsRoutes';
-
 import Loadable from 'components/Loadable';
 import { SimpleLayoutType } from '../config';
 import SimpleLayout from 'layout/Simple';
@@ -64,8 +62,7 @@ const router = createBrowserRouter(
           element: <WikipediaServicesSection />
         }
       ]
-    },
-    ComponentsRoutes
+    }
   ],
   { basename: import.meta.env.VITE_APP_BASE_NAME }
 );
