@@ -275,8 +275,8 @@ export default function WhyChooseUs() {
         >
           {[
             { value: '98%', label: 'Client Satisfaction' },
-            { value: '250+', label: 'Projects Completed' },
-            { value: '15+', label: 'Years Experience' },
+            { value: '5+', label: 'Projects Completed' },
+            { value: '2', label: 'Years Experience' },
             { value: '4.8/5', label: 'Average Rating' }
           ].map((stat, index) => (
             <Box

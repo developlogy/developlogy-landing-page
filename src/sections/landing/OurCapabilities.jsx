@@ -247,11 +247,38 @@ export default function OurCapabilities() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                display: 'inline-block'
+                display: 'inline-block',
+                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2.125rem' }
               }}
             >
               Let&apos;s Connect
             </Typography>
+          </FadeInWhenVisible>
+
+          <FadeInWhenVisible>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                component={RouterLink}
+                to="/contact-us"
+                variant="contained"
+                size="large"
+                endIcon={<ArrowForwardIcon />}
+                sx={{
+                  background: 'linear-gradient(90deg, #25a1f4, #f91fa9)',
+                  fontWeight: 600,
+                  fontSize: { xs: '1rem', sm: '1.1rem' },
+                  py: 1.5,
+                  px: 4,
+                  boxShadow: '0 4px 15px rgba(249, 31, 169, 0.3)',
+                  '&:hover': {
+                    background: 'linear-gradient(90deg, #1d8fd8, #e01a96)',
+                    boxShadow: '0 6px 20px rgba(249, 31, 169, 0.5)'
+                  }
+                }}
+              >
+                Let&apos;s Talk
+              </Button>
+            </motion.div>
           </FadeInWhenVisible>
 
           <FadeInWhenVisible>

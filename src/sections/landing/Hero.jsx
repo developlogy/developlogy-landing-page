@@ -420,10 +420,10 @@ export default function HeroPage() {
           }}
         >
           {[
-            { value: '1.2K', label: 'Active Clients' },
+            { value: '10', label: 'Active Clients' },
             { value: '98%', label: 'Client Retention' },
             { value: '4.8/5', label: 'Satisfaction Rating' },
-            { value: '15+', label: 'Years Experience' }
+            { value: '2+', label: 'Years Experience' }
           ].map((stat, index) => (
             <Box
               key={index}
