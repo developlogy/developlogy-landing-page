@@ -63,14 +63,14 @@ export let DropzopType;
 // ==============================|| THEME CONFIG ||============================== //
 
 const config = {
-  fontFamily: `inter`,
+  fontFamily: `poppins`,
   i18n: 'en',
   menuOrientation: MenuOrientation.VERTICAL,
   menuCaption: true,
   miniDrawer: false,
   container: false,
   mode: ThemeMode.LIGHT,
-  presetColor: 'theme0',
+  presetColor: 'theme1',
   themeDirection: ThemeDirection.LTR,
   themeContrast: false
 };
